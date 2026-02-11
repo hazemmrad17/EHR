@@ -120,11 +120,15 @@ export const Sidebar = ({ currentView, onViewChange }: SidebarProps) => {
                 <div className="flex-shrink-0 pt-3 mt-auto">
                     <button
                         onClick={() => {
-                            document.documentElement.classList.toggle('dark');
+                            const isDark = document.documentElement.classList.toggle('dark');
+                            // We can use a local state if we want to force re-render, 
+                            // but the CSS 'dark:' classes handle it automatically.
+                            // To swap the icon immediately, we'll use a small hack or just let CSS do it.
                         }}
-                        className="w-11 h-11 rounded-2xl flex items-center justify-center hover:bg-white/40 transition-all text-text-secondary hover:text-text-header group"
+                        className="w-11 h-11 rounded-2xl flex items-center justify-center hover:bg-white/40 transition-all text-text-secondary hover:text-text-header group relative overflow-hidden"
                     >
-                        <Sun className="w-[18px] h-[18px] group-hover:rotate-180 transition-transform duration-500" />
+                        <Sun className="w-[18px] h-[18px] transition-all duration-500 rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
+                        <Moon className="w-[18px] h-[18px] absolute transition-all duration-500 rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
                     </button>
                 </div>
 
