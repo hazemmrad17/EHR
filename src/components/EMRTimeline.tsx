@@ -45,14 +45,14 @@ export const EMRTimeline = () => {
         <div className="flex flex-col gap-10 relative mt-16 mb-20">
             {/* 1. Year Header - 2024 */}
             <div className="relative pl-24 mb-4">
-                <div className="absolute left-[30px] top-1/2 -translate-y-1/2 w-[21px] h-[21px] bg-text-header shadow-xl rounded-full z-10 flex items-center justify-center">
+                <div className="absolute left-[30px] top-1/2 -translate-y-1/2 w-[21px] h-[21px] bg-primary-blue shadow-xl rounded-full z-10 flex items-center justify-center">
                     <div className="w-1.5 h-1.5 bg-white rounded-full" />
                 </div>
-                <h3 className="text-4xl font-black text-text-header/10 uppercase tracking-[0.2em]">2024</h3>
+                <h3 className="text-4xl font-black text-text-header/10 dark:text-white/5 uppercase tracking-[0.2em]">2024</h3>
             </div>
 
             {/* Dynamic Connector Line */}
-            <div className="absolute left-10 top-8 bottom-2 w-px bg-gradient-to-b from-text-header/20 via-text-header/10 to-transparent" />
+            <div className="absolute left-10 top-8 bottom-2 w-px bg-gradient-to-b from-primary-blue/20 via-text-header/5 to-transparent" />
 
             {timelineData.map((item, idx) => (
                 <motion.div
@@ -65,18 +65,18 @@ export const EMRTimeline = () => {
                     {/* Month Label for first item of month (Mocked) */}
                     {idx === 0 && (
                         <div className="absolute -left-4 top-6 z-20">
-                            <span className="text-[10px] font-black text-white bg-text-header px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-lg">
+                            <span className="text-[10px] font-black text-background bg-text-header px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-lg">
                                 February
                             </span>
                         </div>
                     )}
 
                     {/* Node Dot */}
-                    <div className="absolute left-[36px] top-8 w-2 h-2 bg-text-header rounded-full z-10 opacity-40 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500" />
+                    <div className="absolute left-[36px] top-8 w-2 h-2 bg-primary-blue rounded-full z-10 opacity-40 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500" />
 
-                    <div className="glass-card p-10 hover:bg-white/60 transition-all duration-700 border-white/40 backdrop-blur-3xl group-hover:translate-x-3 overflow-hidden relative">
+                    <div className="glass-card p-10 hover:bg-white/5 dark:hover:bg-white/[0.02] transition-all duration-700 border-glass-border backdrop-blur-3xl group-hover:translate-x-3 overflow-hidden relative">
                         {/* Subtle Background Icon */}
-                        <item.icon className="absolute -bottom-6 -right-6 w-32 h-32 text-slate-100/50 group-hover:text-slate-100/80 transition-colors -rotate-12" />
+                        <item.icon className="absolute -bottom-6 -right-6 w-32 h-32 text-text-header/5 dark:text-white/[0.03] group-hover:text-text-header/10 transition-colors -rotate-12" />
 
                         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 relative z-10">
                             <div className="flex items-start gap-8">
@@ -96,7 +96,7 @@ export const EMRTimeline = () => {
                                     </div>
                                     <h3 className="text-3xl font-semibold text-text-header tracking-tight leading-none">{item.title}</h3>
                                     <div className="flex items-center gap-2.5 pt-2">
-                                        <div className="w-6 h-6 rounded-full bg-slate-100 overflow-hidden border border-white">
+                                        <div className="w-6 h-6 rounded-full bg-glass overflow-hidden border border-glass-border">
                                             <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.provider}`} />
                                         </div>
                                         <p className="text-[11px] font-bold text-text-secondary tracking-widest uppercase">{item.provider}</p>
@@ -105,12 +105,12 @@ export const EMRTimeline = () => {
                             </div>
 
                             <div className="flex flex-col items-end gap-3">
-                                <div className="bg-white/80 backdrop-blur-md px-6 py-2.5 rounded-2xl text-text-header font-black text-[11px] tracking-[0.2em] uppercase shadow-sm border border-white">
+                                <div className="bg-glass backdrop-blur-md px-6 py-2.5 rounded-2xl text-text-header font-black text-[11px] tracking-[0.2em] uppercase shadow-sm border border-glass-border">
                                     {item.date}
                                 </div>
                                 <div className="flex -space-x-3">
                                     {[1, 2].map(i => (
-                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden">
+                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-glass-border bg-glass flex items-center justify-center overflow-hidden">
                                             <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=Doc${i}`} />
                                         </div>
                                     ))}
@@ -118,7 +118,7 @@ export const EMRTimeline = () => {
                             </div>
                         </div>
 
-                        <div className="mt-10 pt-10 border-t border-white/20 relative z-10">
+                        <div className="mt-10 pt-10 border-t border-glass-border relative z-10">
                             <p className="text-text-header/70 text-lg leading-relaxed font-medium group-hover:text-text-header transition-colors">
                                 {item.description}
                             </p>

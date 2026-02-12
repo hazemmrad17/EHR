@@ -134,7 +134,7 @@ export const AIScribe = () => {
             {/* ── Header ────────────────────────────────── */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-blue to-accent-purple flex items-center justify-center shadow-xl shadow-primary-blue/20">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-blue to-accent-purple flex items-center justify-center shadow-xl dark:shadow-primary-blue/10 shadow-primary-blue/20">
                         <Brain className="w-7 h-7 text-white" />
                     </div>
                     <div>
@@ -149,7 +149,7 @@ export const AIScribe = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             onClick={handleCopy}
-                            className="flex items-center gap-2 px-6 py-3 bg-text-header text-white rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-text-header/90 transition-all"
+                            className="flex items-center gap-2 px-6 py-3 bg-text-header text-background rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-text-header/90 transition-all"
                         >
                             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                             {copied ? "Copied" : "Copy to Visit"}
@@ -229,7 +229,7 @@ export const AIScribe = () => {
                                         <span>{stat.label}</span>
                                         <span className="text-primary-blue">{stat.value}%</span>
                                     </div>
-                                    <div className="h-1.5 bg-text-header/5 rounded-full overflow-hidden">
+                                    <div className="h-1.5 bg-text-header/10 dark:bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-gradient-to-r from-primary-blue to-accent-purple rounded-full"
                                             initial={{ width: 0 }}
@@ -247,7 +247,7 @@ export const AIScribe = () => {
                 <div className="col-span-12 lg:col-span-8">
                     <div className="glass-card p-0 overflow-hidden h-full flex flex-col">
                         {/* SOAP Tabs */}
-                        <div className="flex border-b border-white/30 bg-white/20">
+                        <div className="flex border-b border-glass-border bg-white/5 dark:bg-white/[0.02]">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
@@ -260,8 +260,8 @@ export const AIScribe = () => {
                                     className={cn(
                                         "flex-1 py-5 text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 border-b-2",
                                         activeTab === tab.id
-                                            ? "text-text-header border-primary-blue bg-white/30"
-                                            : "text-text-secondary border-transparent hover:text-text-header hover:bg-white/10"
+                                            ? "text-text-header border-primary-blue bg-white/10 dark:bg-white/[0.05]"
+                                            : "text-text-secondary border-transparent hover:text-text-header hover:bg-white/5"
                                     )}
                                 >
                                     <span>{tab.icon}</span> {tab.label}
@@ -280,7 +280,7 @@ export const AIScribe = () => {
                                         exit={{ opacity: 0 }}
                                         className="h-full flex flex-col items-center justify-center gap-6 text-center py-20"
                                     >
-                                        <div className="w-20 h-20 rounded-full bg-text-header/5 flex items-center justify-center">
+                                        <div className="w-20 h-20 rounded-full bg-glass flex items-center justify-center">
                                             <FileText className="w-8 h-8 text-text-secondary/40" />
                                         </div>
                                         <div>
@@ -299,9 +299,9 @@ export const AIScribe = () => {
                                         <motion.div
                                             animate={{ scale: [1, 1.1, 1] }}
                                             transition={{ duration: 2, repeat: Infinity }}
-                                            className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center"
+                                            className="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center"
                                         >
-                                            <Sparkles className="w-8 h-8 text-red-400" />
+                                            <Sparkles className="w-8 h-8 text-red-500" />
                                         </motion.div>
                                         <p className="text-sm font-bold text-text-header animate-pulse">Processing audio stream...</p>
                                     </motion.div>

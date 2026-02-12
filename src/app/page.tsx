@@ -33,7 +33,7 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto relative z-10 px-4">
         {/* TOP NAV - REFINED GLASS */}
-        <div className="sticky top-0 z-40 flex items-center justify-between pb-8 pt-4 mb-12 gap-6 bg-white/5 backdrop-blur-sm -mx-6 px-6 rounded-b-[40px]">
+        <div className="sticky top-0 z-40 flex items-center justify-between pb-8 pt-4 mb-12 gap-6 bg-white/5 dark:bg-black/5 backdrop-blur-sm -mx-6 px-6 rounded-b-[40px] transition-colors duration-500">
           <div className="flex items-center gap-4 flex-1 min-w-0">
             <div className="relative group max-w-[280px] w-full">
               <div className="absolute left-5 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none">
@@ -43,13 +43,13 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full h-11 pl-12 pr-6 bg-white/40 backdrop-blur-3xl border border-white/60 rounded-full focus:ring-4 focus:ring-primary-blue/5 outline-none text-[11px] font-medium text-text-header placeholder:text-slate-400 placeholder:opacity-50 transition-all font-outfit"
+                className="w-full h-11 pl-12 pr-6 bg-glass backdrop-blur-3xl border border-glass-border rounded-full focus:ring-4 focus:ring-primary-blue/5 outline-none text-[11px] font-medium text-text-header placeholder:text-slate-400 placeholder:opacity-50 transition-all font-outfit"
               />
             </div>
 
             {/* Dynamic View Title */}
             <div className="flex flex-col ml-2">
-              <h1 className="text-sm font-black text-text-header uppercase tracking-[0.2em]">
+              <h1 className="text-lg font-black text-text-header uppercase tracking-[0.3em] transition-all duration-500">
                 {currentView === 'diagnostic' ? 'Clinical Insights' :
                   currentView === 'visit' ? 'Unified Visit' :
                     currentView === 'collaboration' ? 'Collaborative Hub' :
@@ -67,12 +67,12 @@ export default function Home() {
 
           <div className="flex items-center gap-3 shrink-0">
             <RoleSwitcher />
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md p-1 rounded-full border border-white/40">
-              <button onClick={() => setNotificationsOpen(true)} className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white transition-all text-text-header relative">
+            <div className="flex items-center gap-2 bg-glass backdrop-blur-md p-1 rounded-full border border-glass-border">
+              <button onClick={() => setNotificationsOpen(true)} className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 dark:hover:bg-white/10 transition-all text-text-header relative">
                 <Bell className="w-4 h-4" />
                 <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
               </button>
-              <button className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white transition-all text-text-header">
+              <button className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 dark:hover:bg-white/10 transition-all text-text-header">
                 <Settings className="w-4 h-4" />
               </button>
             </div>

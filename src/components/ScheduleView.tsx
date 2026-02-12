@@ -21,11 +21,11 @@ interface Appointment {
 }
 
 const typeConfig = {
-    'follow-up': { color: 'bg-primary-blue/10 border-primary-blue/20 text-primary-blue', icon: Stethoscope, label: 'Follow-up' },
-    'emergency': { color: 'bg-red-50 border-red-200 text-red-600', icon: Brain, label: 'Emergency' },
-    'lab-review': { color: 'bg-amber-50 border-amber-200 text-amber-600', icon: FlaskConical, label: 'Lab Review' },
-    'telehealth': { color: 'bg-emerald-50 border-emerald-200 text-emerald-600', icon: Video, label: 'Telehealth' },
-    'surgery': { color: 'bg-purple-50 border-purple-200 text-purple-600', icon: Brain, label: 'Surgery Consult' },
+    'follow-up': { color: 'bg-primary-blue/10 border-primary-blue/20 text-primary-blue dark:text-blue-400', icon: Stethoscope, label: 'Follow-up' },
+    'emergency': { color: 'bg-red-500/10 border-red-500/20 text-red-600 dark:text-red-400', icon: Brain, label: 'Emergency' },
+    'lab-review': { color: 'bg-amber-500/10 border-amber-500/20 text-amber-600 dark:text-amber-400', icon: FlaskConical, label: 'Lab Review' },
+    'telehealth': { color: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400', icon: Video, label: 'Telehealth' },
+    'surgery': { color: 'bg-purple-500/10 border-purple-500/20 text-purple-600 dark:text-purple-400', icon: Brain, label: 'Surgery Consult' },
 };
 
 const appointments: Appointment[] = [
@@ -57,12 +57,12 @@ export const ScheduleView = () => {
 
                 <div className="flex items-center gap-4">
                     {/* Week Navigator */}
-                    <div className="flex items-center gap-3 bg-white/30 backdrop-blur-xl px-2 py-1 rounded-full border border-white/40">
-                        <button className="w-8 h-8 rounded-full hover:bg-white flex items-center justify-center transition-all">
+                    <div className="flex items-center gap-3 bg-glass backdrop-blur-xl px-2 py-1 rounded-full border border-glass-border">
+                        <button className="w-8 h-8 rounded-full hover:bg-white/10 dark:hover:bg-white/5 flex items-center justify-center transition-all">
                             <ChevronLeft className="w-4 h-4 text-text-secondary" />
                         </button>
                         <span className="text-[11px] font-bold text-text-header px-3">{currentWeek}</span>
-                        <button className="w-8 h-8 rounded-full hover:bg-white flex items-center justify-center transition-all">
+                        <button className="w-8 h-8 rounded-full hover:bg-white/10 dark:hover:bg-white/5 flex items-center justify-center transition-all">
                             <ChevronRight className="w-4 h-4 text-text-secondary" />
                         </button>
                     </div>
@@ -84,9 +84,9 @@ export const ScheduleView = () => {
             <div className="glass-card p-0 overflow-hidden flex-1">
                 <div className="grid grid-cols-[80px_repeat(5,1fr)]">
                     {/* Header Row */}
-                    <div className="border-b border-r border-white/30 p-4" />
+                    <div className="border-b border-r border-glass-border p-4" />
                     {weekDays.map((day, idx) => (
-                        <div key={day} className="border-b border-r border-white/30 p-4 text-center last:border-r-0">
+                        <div key={day} className="border-b border-r border-glass-border p-4 text-center last:border-r-0">
                             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-text-secondary">{day.slice(0, 3)}</p>
                             <p className="text-lg font-black text-text-header mt-1">{10 + idx}</p>
                         </div>
@@ -96,7 +96,7 @@ export const ScheduleView = () => {
                     {hours.map((hour, hourIdx) => (
                         <div key={hour} className="contents">
                             {/* Time Label */}
-                            <div className="border-r border-b border-white/20 p-3 flex items-start justify-end">
+                            <div className="border-r border-b border-glass-border p-3 flex items-start justify-end">
                                 <span className="text-[10px] font-bold text-text-secondary/50">{hour}</span>
                             </div>
 
@@ -106,7 +106,7 @@ export const ScheduleView = () => {
                                 return (
                                     <div
                                         key={`${hourIdx}-${dayIdx}`}
-                                        className="border-r border-b border-white/10 relative min-h-[60px] last:border-r-0 hover:bg-white/20 transition-colors"
+                                        className="border-r border-b border-glass-border relative min-h-[60px] last:border-r-0 hover:bg-white/10 dark:hover:bg-white/5 transition-colors"
                                     >
                                         {cellAppointments.map((apt) => {
                                             const config = typeConfig[apt.type];

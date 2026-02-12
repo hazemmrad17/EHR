@@ -40,8 +40,8 @@ const SidebarItem = ({ icon: Icon, id, label, active, onClick }: SidebarItemProp
                 className={cn(
                     "w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300",
                     active
-                        ? "bg-text-header text-white shadow-lg shadow-text-header/20"
-                        : "text-text-secondary hover:bg-white/50 hover:text-text-header"
+                        ? "bg-text-header text-background shadow-lg dark:shadow-white/5 shadow-text-header/20"
+                        : "text-text-secondary hover:bg-white/10 dark:hover:bg-white/5 hover:text-text-header"
                 )}
             >
                 <Icon className="w-[18px] h-[18px]" />
@@ -58,7 +58,7 @@ const SidebarItem = ({ icon: Icon, id, label, active, onClick }: SidebarItemProp
                 {active && (
                     <motion.div
                         layoutId="sidebar-indicator"
-                        className="absolute -right-[14px] top-1/2 -translate-y-1/2 w-[3px] h-7 bg-primary-blue rounded-full"
+                        className="absolute -right-2 top-1/2 -translate-y-1/2 w-[3px] h-7 bg-primary-blue rounded-full"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -94,7 +94,7 @@ export const Sidebar = ({ currentView, onViewChange }: SidebarProps) => {
         <motion.aside
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            className="fixed left-6 top-6 bottom-6 w-[82px] bg-white/30 backdrop-blur-3xl border border-white/50 rounded-[32px] py-6 flex flex-col items-center z-50 shadow-2xl"
+            className="fixed left-6 top-6 bottom-6 w-[82px] bg-glass backdrop-blur-3xl border border-glass-border rounded-[32px] py-6 flex flex-col items-center z-50 shadow-2xl transition-colors duration-500"
         >
             <div className="flex flex-col items-center w-full h-full">
                 {/* STUDIO LOGO */}

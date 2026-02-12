@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import { mockDatabase, type Patient } from "@/lib/MockDatabase";
 
 const statusConfig = {
-    critical: { color: 'bg-red-500', text: 'text-red-600', bg: 'bg-red-50', label: 'Critical' },
-    active: { color: 'bg-emerald-500', text: 'text-emerald-600', bg: 'bg-emerald-50', label: 'Active' },
-    discharged: { color: 'bg-slate-400', text: 'text-slate-500', bg: 'bg-slate-50', label: 'Discharged' },
+    critical: { color: 'bg-red-500', text: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-500/10', label: 'Critical' },
+    active: { color: 'bg-emerald-500', text: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-500/10', label: 'Active' },
+    discharged: { color: 'bg-slate-400', text: 'text-slate-500 dark:text-slate-400', bg: 'bg-slate-50 dark:bg-white/5', label: 'Discharged' },
 };
 
 const getRiskColor = (score: number) => {
@@ -51,12 +51,12 @@ export const PatientDirectory = () => {
                             placeholder="Search patients..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-64 h-11 pl-11 pr-4 bg-white/40 backdrop-blur-3xl border border-white/60 rounded-full text-[11px] font-medium text-text-header placeholder:text-slate-400/50 outline-none focus:ring-4 focus:ring-primary-blue/5 transition-all"
+                            className="w-64 h-11 pl-11 pr-4 bg-glass backdrop-blur-3xl border border-glass-border rounded-full text-[11px] font-medium text-text-header placeholder:text-slate-400/50 outline-none focus:ring-4 focus:ring-primary-blue/5 transition-all"
                         />
                     </div>
 
                     {/* Status Filter */}
-                    <div className="flex items-center bg-white/30 backdrop-blur-xl p-1 rounded-full border border-white/40">
+                    <div className="flex items-center bg-glass backdrop-blur-xl p-1 rounded-full border border-glass-border">
                         {(['all', 'critical', 'active', 'discharged'] as const).map((status) => (
                             <button
                                 key={status}
@@ -64,7 +64,7 @@ export const PatientDirectory = () => {
                                 className={cn(
                                     "px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.15em] transition-all",
                                     filterStatus === status
-                                        ? "bg-text-header text-white shadow-sm"
+                                        ? "bg-text-header text-background shadow-sm"
                                         : "text-text-secondary hover:text-text-header"
                                 )}
                             >
@@ -74,11 +74,11 @@ export const PatientDirectory = () => {
                     </div>
 
                     {/* View Toggle */}
-                    <div className="flex items-center bg-white/30 p-1 rounded-full border border-white/40">
+                    <div className="flex items-center bg-glass p-1 rounded-full border border-glass-border">
                         <button
                             onClick={() => setViewMode('grid')}
                             className={cn("w-9 h-9 rounded-full flex items-center justify-center transition-all",
-                                viewMode === 'grid' ? "bg-text-header text-white shadow-sm" : "text-text-secondary"
+                                viewMode === 'grid' ? "bg-text-header text-background shadow-sm" : "text-text-secondary hover:text-text-header"
                             )}
                         >
                             <Grid3X3 className="w-4 h-4" />
@@ -86,7 +86,7 @@ export const PatientDirectory = () => {
                         <button
                             onClick={() => setViewMode('list')}
                             className={cn("w-9 h-9 rounded-full flex items-center justify-center transition-all",
-                                viewMode === 'list' ? "bg-text-header text-white shadow-sm" : "text-text-secondary"
+                                viewMode === 'list' ? "bg-text-header text-background shadow-sm" : "text-text-secondary hover:text-text-header"
                             )}
                         >
                             <List className="w-4 h-4" />
@@ -129,11 +129,11 @@ const PatientCard = ({ patient, index }: { patient: Patient; index: number }) =>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="glass-card p-7 cursor-pointer hover:scale-[1.02] hover:bg-white/60 transition-all group"
+            className="glass-card p-7 cursor-pointer hover:scale-[1.02] hover:bg-white/10 dark:hover:bg-white/5 transition-all group"
         >
             <div className="flex items-start justify-between mb-5">
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-glass-border shadow-lg">
                         <img
                             src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${patient.avatar}`}
                             alt={patient.name}
@@ -153,7 +153,7 @@ const PatientCard = ({ patient, index }: { patient: Patient; index: number }) =>
                 <p className="text-[12px] font-semibold text-text-header">{patient.condition}</p>
             </div>
 
-            <div className="flex items-center gap-4 pt-4 border-t border-white/30">
+            <div className="flex items-center gap-4 pt-4 border-t border-glass-border">
                 <div className="flex-1">
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-text-secondary">Risk</p>
                     <p className={cn("text-lg font-black", getRiskColor(patient.riskScore))}>{patient.riskScore}</p>
@@ -179,9 +179,9 @@ const PatientRow = ({ patient, index }: { patient: Patient; index: number }) => 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.04 }}
-            className="glass-card p-5 flex items-center gap-6 cursor-pointer hover:bg-white/60 transition-all group"
+            className="glass-card p-5 flex items-center gap-6 cursor-pointer hover:bg-white/10 dark:hover:bg-white/5 transition-all group"
         >
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg shrink-0">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-glass-border shadow-lg shrink-0">
                 <img
                     src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${patient.avatar}`}
                     alt={patient.name}

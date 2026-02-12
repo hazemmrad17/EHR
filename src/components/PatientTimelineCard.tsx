@@ -20,7 +20,7 @@ export const PatientTimelineCard = () => {
         >
             <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-sage-mist rounded-2xl flex items-center justify-center">
+                    <div className="w-16 h-16 bg-glass border border-glass-border rounded-2xl flex items-center justify-center">
                         <User className="w-8 h-8 text-text-header" />
                     </div>
                     <div>
@@ -28,13 +28,13 @@ export const PatientTimelineCard = () => {
                         <p className="text-text-secondary">Sarah Johnson • ID: #23894</p>
                     </div>
                 </div>
-                <button className="pill-button bg-text-header text-white font-medium hover:opacity-90 active:scale-95">
+                <button className="pill-button bg-text-header text-background text-[11px] font-black uppercase tracking-widest px-6 py-2.5 rounded-full hover:opacity-90 active:scale-95 transition-all">
                     View Detail
                 </button>
             </div>
 
             <div className="relative pl-10 space-y-10">
-                <div className="absolute left-[19px] top-2 bottom-2 w-px bg-sage-mist" />
+                <div className="absolute left-[19px] top-2 bottom-2 w-px bg-glass border-l border-glass-border" />
 
                 {events.map((event, idx) => (
                     <motion.div

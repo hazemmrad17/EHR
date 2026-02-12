@@ -19,7 +19,7 @@ export const PatientSummary = () => {
                         whileHover={{ scale: 1.05 }}
                         className="relative"
                     >
-                        <div className="w-24 h-24 rounded-full overflow-hidden border-[6px] border-white shadow-2xl relative z-10">
+                        <div className="w-24 h-24 rounded-full overflow-hidden border-[6px] border-glass-border shadow-2xl relative z-10">
                             <img
                                 src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
                                 alt="Sarah Johnson"
@@ -33,7 +33,7 @@ export const PatientSummary = () => {
                     <div>
                         <div className="flex items-center gap-4">
                             <h1 className="text-5xl font-semibold text-text-header tracking-tight">Sarah Johnson</h1>
-                            <span className="glass-pill text-[12px] font-semibold tracking-wide text-text-header shadow-none px-4 py-1 border-white/40">28 Y.O.</span>
+                            <span className="glass-pill text-[12px] font-semibold tracking-wide text-text-header shadow-none px-4 py-1 border-glass-border">28 Y.O.</span>
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                             <div className="w-2 h-2 bg-primary-green rounded-full shadow-[0_0_8px_rgba(82,147,90,0.5)]" />
@@ -43,10 +43,10 @@ export const PatientSummary = () => {
                 </div>
 
                 <div className="flex gap-4">
-                    <button className="glass-pill font-semibold text-[11px] tracking-wide hover:bg-white transition-all shadow-none border-white/40">
+                    <button className="glass-pill font-semibold text-[11px] tracking-wide hover:bg-white/10 dark:hover:bg-white/5 transition-all shadow-none border-glass-border">
                         Edit Data
                     </button>
-                    <button className="h-14 px-8 bg-text-header text-white rounded-full font-semibold text-[12px] tracking-wide flex items-center gap-3 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all">
+                    <button className="h-14 px-8 bg-text-header text-background rounded-full font-semibold text-[12px] tracking-wide flex items-center gap-3 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all">
                         New Consultation <ArrowUpRight className="w-4 h-4" />
                     </button>
                 </div>

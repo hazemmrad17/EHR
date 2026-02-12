@@ -60,23 +60,23 @@ const notifications = [
 const priorityStyles = {
     critical: {
         dot: 'bg-red-500',
-        bg: 'bg-red-50',
-        border: 'border-red-100',
-        icon: 'text-red-500',
+        bg: 'bg-red-500/10',
+        border: 'border-red-500/20',
+        icon: 'text-red-500 dark:text-red-400',
         label: 'CRITICAL',
     },
     warning: {
         dot: 'bg-amber-500',
-        bg: 'bg-amber-50',
-        border: 'border-amber-100',
-        icon: 'text-amber-500',
+        bg: 'bg-amber-500/10',
+        border: 'border-amber-500/20',
+        icon: 'text-amber-600 dark:text-amber-400',
         label: 'WARNING',
     },
     info: {
         dot: 'bg-primary-blue',
-        bg: 'bg-blue-50',
-        border: 'border-blue-100',
-        icon: 'text-primary-blue',
+        bg: 'bg-primary-blue/10',
+        border: 'border-primary-blue/20',
+        icon: 'text-primary-blue dark:text-blue-400',
         label: 'INFO',
     },
 };
@@ -103,7 +103,7 @@ export const NotificationPanel = ({ isOpen, onClose }: NotificationPanelProps) =
                         animate={{ opacity: 1, x: 0, y: 0 }}
                         exit={{ opacity: 0, x: 20, y: -10 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="fixed top-24 right-20 w-[420px] max-h-[600px] bg-white/90 backdrop-blur-3xl border border-white/60 rounded-[32px] shadow-2xl z-[70] flex flex-col overflow-hidden"
+                        className="fixed top-24 right-20 w-[420px] max-h-[600px] bg-glass backdrop-blur-3xl border border-glass-border rounded-[32px] shadow-2xl z-[70] flex flex-col overflow-hidden"
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between p-8 pb-4">
@@ -133,7 +133,7 @@ export const NotificationPanel = ({ isOpen, onClose }: NotificationPanelProps) =
                                         transition={{ delay: idx * 0.05 }}
                                         className={cn(
                                             "flex items-start gap-4 p-5 rounded-2xl cursor-pointer transition-all hover:scale-[1.01]",
-                                            notif.read ? "opacity-60" : "bg-white shadow-sm border border-white/60"
+                                            notif.read ? "opacity-40" : "bg-white/10 dark:bg-white/[0.03] shadow-sm border border-glass-border"
                                         )}
                                     >
                                         {/* Icon */}
@@ -164,8 +164,8 @@ export const NotificationPanel = ({ isOpen, onClose }: NotificationPanelProps) =
                         </div>
 
                         {/* Footer */}
-                        <div className="p-6 pt-3 border-t border-white/40">
-                            <button className="w-full py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-primary-blue hover:bg-primary-blue/5 transition-colors">
+                        <div className="p-6 pt-3 border-t border-glass-border">
+                            <button className="w-full py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-primary-blue hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
                                 View All Notifications
                             </button>
                         </div>
